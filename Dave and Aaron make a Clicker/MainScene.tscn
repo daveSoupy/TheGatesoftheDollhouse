@@ -1,19 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0xuusrfq75x3"]
+[gd_scene load_steps=4 format=3 uid="uid://d0xuusrfq75x3"]
 
 [ext_resource type="PackedScene" uid="uid://cvwthqvdmu3gg" path="res://Button.tscn" id="1_3mqji"]
+[ext_resource type="Script" uid="uid://ctcfanufxlonr" path="res://main_scene.gd" id="1_x4av3"]
+
+[sub_resource type="Theme" id="Theme_3mqji"]
+default_font_size = 28
 
 [node name="MainScene" type="Node2D"]
+script = ExtResource("1_x4av3")
 
-[node name="Button" parent="." instance=ExtResource("1_3mqji")]
-offset_left = 524.0
-offset_top = 251.0
-offset_right = 653.0
-offset_bottom = 379.0
+[node name="Up Button" parent="." instance=ExtResource("1_3mqji")]
+offset_left = 242.0
+offset_top = 256.0
+offset_right = 371.0
+offset_bottom = 384.0
+script = null
+
+[node name="Down Button" parent="." instance=ExtResource("1_3mqji")]
+offset_left = 693.0
+offset_top = 379.0
+offset_right = 822.0
+offset_bottom = 507.0
+rotation = 3.1415927
+script = null
 
 [node name="scorelable" type="Label" parent="."]
-offset_left = 539.0
-offset_top = 96.0
-offset_right = 641.0
-offset_bottom = 174.0
-text = "0"
+offset_left = 255.0
+offset_top = 116.0
+offset_right = 357.0
+offset_bottom = 194.0
+theme = SubResource("Theme_3mqji")
 horizontal_alignment = 1
+
+[connection signal="pressed" from="Up Button" to="." method="_on_up_button_pressed"]
+[connection signal="pressed" from="Down Button" to="." method="_on_down_button_pressed"]
